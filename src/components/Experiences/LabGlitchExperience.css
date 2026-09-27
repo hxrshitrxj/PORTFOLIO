@@ -1,0 +1,418 @@
+/* ==========================================================================
+   LAB GLITCH EXPERIENCE: THE LAB IS STILL LOADING CHAMBER
+   Aesthetic: Deep Obsidian, Warm Crimson Glow, Cyberpunk Terminal HUD
+   ========================================================================== */
+
+.lab-glitch-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: #060102;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  padding: 80px 48px 24px 48px;
+  box-sizing: border-box;
+}
+
+/* CRT Scanlines */
+.lab-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.45) 50%);
+  background-size: 100% 4px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* Digital Noise / Glitch Layer */
+.lab-noise-layer {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 60, 0, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Ambient Glowing Orbs */
+.lab-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  z-index: 1;
+}
+
+.lab-glow-orb.top-left {
+  top: -10%;
+  left: -5%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(255, 60, 0, 0.15) 0%, transparent 70%);
+}
+
+.lab-glow-orb.bottom-right {
+  bottom: -15%;
+  right: -5%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(255, 120, 0, 0.1) 0%, transparent 70%);
+}
+
+/* Top HUD Header */
+.lab-top-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 80, 0, 0.15);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.lab-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.lab-pulse-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff5500;
+  box-shadow: 0 0 12px #ff5500;
+  animation: pulseNeon 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes pulseNeon {
+  from {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 18px #ff7700;
+  }
+}
+
+.lab-hud-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lab-status-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #ffaa40;
+  background: rgba(255, 100, 0, 0.12);
+  border: 1px solid rgba(255, 120, 0, 0.3);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.lab-telemetry-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.strip-icon.pulse-red {
+  color: #ff4400;
+}
+
+/* Centered Hero Loading Stage */
+.lab-loading-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 1.5rem 0;
+}
+
+.lab-loading-card {
+  max-width: 820px;
+  width: 100%;
+  background: rgba(18, 5, 8, 0.75);
+  border: 1px solid rgba(255, 80, 0, 0.25);
+  border-radius: 16px;
+  padding: 3.5rem 3.5rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75), 0 0 40px rgba(255, 60, 0, 0.08);
+  backdrop-filter: blur(20px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+/* Chamber Badge */
+.lab-chamber-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  background: rgba(255, 70, 0, 0.1);
+  border: 1px solid rgba(255, 100, 0, 0.35);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #ff8c40;
+  margin-bottom: 2rem;
+}
+
+.chamber-icon {
+  color: #ff5500;
+}
+
+.chamber-code {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.7rem;
+}
+
+/* Headline */
+.lab-headline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 1.5rem 0;
+  background: linear-gradient(135deg, #ffffff 40%, #ff9560 80%, #ff4000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.animated-dots {
+  display: inline-block;
+  min-width: 2ch;
+  text-align: left;
+  color: #ff6600;
+  -webkit-text-fill-color: #ff6600;
+}
+
+/* Statement */
+.lab-statement {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 220, 205, 0.85);
+  max-width: 680px;
+  margin: 0 0 2.8rem 0;
+}
+
+/* Hologram Progress Container */
+.lab-progress-container {
+  width: 100%;
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lab-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.progress-pct {
+  color: #ffaa40;
+}
+
+.lab-progress-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lab-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(90deg, #ff3300 0%, #ff8800 70%, #ffc400 100%);
+  border-radius: 6px;
+  animation: pulseBar 3s infinite ease-in-out;
+}
+
+@keyframes pulseBar {
+  0% { width: 35%; }
+  50% { width: 78%; }
+  100% { width: 35%; }
+}
+
+.lab-hash-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.hash-block {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 80, 0, 0.2);
+  border-radius: 1px;
+  animation: hashGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes hashGlow {
+  0%, 100% { background: rgba(255, 80, 0, 0.2); }
+  50% { background: rgba(255, 140, 0, 0.85); box-shadow: 0 0 6px rgba(255, 100, 0, 0.6); }
+}
+
+/* Exploration Focus Pills */
+.lab-focus-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 2.8rem;
+  max-width: 640px;
+}
+
+.focus-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 100, 0, 0.18);
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.focus-pill:hover {
+  background: rgba(255, 80, 0, 0.12);
+  border-color: rgba(255, 100, 0, 0.5);
+  color: #fff;
+}
+
+/* Action Buttons */
+.lab-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.lab-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+  text-decoration: none;
+}
+
+.lab-cta-btn.primary {
+  background: linear-gradient(135deg, #ff3300 0%, #ff6600 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(255, 60, 0, 0.35);
+}
+
+.lab-cta-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 60, 0, 0.55);
+}
+
+.lab-cta-btn.secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lab-cta-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Bottom Status Ticker */
+.lab-bottom-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 80, 0, 0.15);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .lab-glitch-container {
+    padding: 70px 24px 20px 24px;
+  }
+
+  .lab-telemetry-strip {
+    display: none;
+  }
+
+  .lab-loading-card {
+    padding: 2.5rem 1.8rem;
+  }
+
+  .lab-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .lab-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lab-bottom-hud {
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+  }
+}

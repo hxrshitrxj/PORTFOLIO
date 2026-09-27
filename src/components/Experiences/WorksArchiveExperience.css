@@ -1,0 +1,793 @@
+/* WORKS ARCHIVE — EDITORIAL ANIME-DASHBOARD STYLING */
+
+.anime-work-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: #120205;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  box-sizing: border-box;
+  padding: 80px 48px 24px 48px;
+}
+
+/* Atmospheric Deep Crimson Background & Ambient Glow */
+.anime-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 45% 42%, #420813 0%, #200409 45%, #0e0104 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.anime-bg-glow {
+  position: absolute;
+  top: 35%;
+  left: 38%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 75, 20, 0.22) 0%, rgba(200, 20, 40, 0.1) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(50px);
+}
+
+.anime-speed-streaks {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* ===================================================
+   MAIN EDITORIAL CANVAS STAGE
+   =================================================== */
+.anime-canvas-stage {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 290px 1fr 390px;
+  align-items: center;
+  gap: 16px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* ===================================================
+   LEFT HERO: Giant Typography, Color Code & Proof Card
+   =================================================== */
+.anime-left-hero {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.anime-title-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.anime-giant-text-top,
+.anime-giant-text-bottom {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.anime-giant-text-bottom {
+  color: #ffeedd;
+}
+
+.anime-subtitle-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 230, 210, 0.8);
+  margin: 12px 0 0 0;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Color Code Widget */
+.anime-color-code-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  width: fit-content;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.color-code-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.color-swatches-row {
+  display: flex;
+  gap: 8px;
+}
+
+.color-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+/* ===================================================
+   ACHIEVEMENT / PROOF CERTIFICATE CARD
+   =================================================== */
+.anime-certificate-proof-card {
+  position: relative;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 11px 13px;
+  background: linear-gradient(135deg, rgba(35, 8, 14, 0.78) 0%, rgba(18, 3, 6, 0.88) 100%);
+  border: 1px solid rgba(255, 200, 50, 0.35);
+  border-radius: 14px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 20px rgba(255, 170, 0, 0.12);
+  width: 100%;
+  max-width: 320px;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.anime-certificate-proof-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(255, 220, 70, 0.65);
+  box-shadow: 0 15px 36px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 190, 20, 0.28);
+}
+
+.cert-proof-ribbon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffaa33;
+}
+
+.cert-trophy-gold {
+  color: #ffd700;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+}
+
+.cert-proof-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cert-thumbnail-frame {
+  position: relative;
+  width: 62px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 215, 50, 0.4);
+  background: #090102;
+  flex-shrink: 0;
+}
+
+.cert-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.anime-certificate-proof-card:hover .cert-thumbnail-img {
+  transform: scale(1.08);
+}
+
+.cert-thumb-expand-icon {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd700;
+}
+
+.cert-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cert-pos-heading {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cert-event-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  color: #ffb700;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cert-school-line {
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px;
+  color: rgba(255, 235, 220, 0.75);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cert-date-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cert-proof-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffaa33;
+}
+
+/* ===================================================
+   CENTER STAGE: Harshit Raj Character Portrait
+   =================================================== */
+.anime-center-portrait-zone {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.anime-portrait-wrapper {
+  position: relative;
+  width: 480px;
+  max-width: 45vw;
+  height: 85vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.anime-character-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 45px rgba(255, 60, 0, 0.35));
+  animation: characterBreathe 5s ease-in-out infinite alternate;
+}
+
+@keyframes characterBreathe {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.02) translateY(-6px); }
+}
+
+.anime-portrait-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  width: 420px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.anime-silhouette-rim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ===================================================
+   RIGHT COLUMN: Capsules, Spec Cards & Bio Panel
+   =================================================== */
+.anime-right-dashboard {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 8px;
+}
+
+/* Top Floating Capsule Pills */
+.anime-capsules-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.anime-capsule-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 8px 5px 12px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  max-width: 310px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.anime-capsule-card:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 140, 60, 0.65);
+  transform: translateX(-4px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 100, 0, 0.25);
+}
+
+.capsule-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.capsule-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.capsule-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.capsule-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(255, 230, 210, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.capsule-plus-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.anime-capsule-card:hover .capsule-plus-btn {
+  background: #ff5500;
+  border-color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Middle Two Floating Spec Cards (Interactive Expandable Components) */
+.anime-spec-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.anime-spec-card {
+  display: flex;
+  gap: 10px;
+  padding: 11px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.anime-spec-card:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 140, 50, 0.65);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 100, 0, 0.22);
+}
+
+.spec-card-thumb-wrap {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.spec-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.anime-spec-card:hover .spec-card-thumb {
+  transform: scale(1.06);
+}
+
+.spec-card-heart-btn {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.spec-card-heart-btn:hover {
+  transform: scale(1.15);
+  background: rgba(255, 59, 48, 0.85);
+}
+
+.spec-card-heart-btn.favorited {
+  background: rgba(255, 59, 48, 0.95);
+  border-color: #ff3b30;
+}
+
+.spec-card-expand-indicator {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffaa33;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.anime-spec-card:hover .spec-card-expand-indicator {
+  opacity: 1;
+  background: #ff5500;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.spec-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.spec-card-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffcc99;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.spec-card-desc {
+  font-size: 10px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.spec-click-hint {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: #ff8833;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+/* Bottom Large Frosted Glass Bio Panel */
+.anime-bio-glass-panel {
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.anime-bio-text {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: rgba(255, 240, 230, 0.85);
+  margin: 0;
+}
+
+.bio-lead {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.bio-role {
+  color: #ffaa55;
+  font-weight: 600;
+}
+
+.anime-bio-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.anime-tags-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex: 1;
+}
+
+.anime-tag-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  padding: 2px 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  color: rgba(255, 230, 210, 0.9);
+}
+
+.anime-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  background: linear-gradient(135deg, #ff4d00 0%, #d00000 100%);
+  border: none;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 60, 0, 0.4);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anime-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(255, 80, 0, 0.65);
+}
+
+/* ===================================================
+   BOTTOM-LEFT: Project Switcher / Watermark
+   =================================================== */
+.anime-bottom-selector {
+  position: absolute;
+  bottom: 24px;
+  left: 48px;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.selector-badges-column {
+  display: flex;
+  gap: 8px;
+}
+
+.selector-badge-card {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.selector-badge-card.active {
+  border-color: #ff5500;
+  box-shadow: 0 0 16px rgba(255, 85, 0, 0.6);
+  transform: scale(1.05);
+}
+
+.badge-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selector-badge-card .badge-num {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+.anime-designer-watermark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ===================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   =================================================== */
+@media (max-width: 1200px) {
+  .anime-work-container {
+    padding: 76px 28px 20px 28px;
+  }
+  .anime-canvas-stage {
+    grid-template-columns: 260px 1fr 340px;
+    gap: 12px;
+  }
+  .anime-giant-text-top,
+  .anime-giant-text-bottom {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .anime-work-container {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 24px 40px 24px;
+  }
+  .anime-canvas-stage {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    height: auto;
+  }
+  .anime-center-portrait-zone {
+    height: 420px;
+  }
+  .anime-portrait-wrapper {
+    height: 420px;
+  }
+  .anime-right-dashboard {
+    padding-left: 0;
+  }
+  .anime-bottom-selector {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .anime-spec-cards-row {
+    grid-template-columns: 1fr;
+  }
+  .anime-certificate-proof-card {
+    max-width: 100%;
+  }
+  .anime-giant-text-top,
+  .anime-giant-text-bottom {
+    font-size: 2.8rem;
+  }
+}
