@@ -1,4 +1,4 @@
-# Cinematic Interactive Scrolling Hero & Portfolio
+# Portfolio
 
 A high-end, award-winning developer & creator portfolio featuring an interactive, scroll-driven camera storytelling hero experience with 4-layer 3D depth, procedural Web Audio, and velocity physics.
 
