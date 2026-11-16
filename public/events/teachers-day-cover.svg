@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="stageGlow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff9500" stop-opacity="0.8"/>
+      <stop offset="35%" stop-color="#d30e06" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#1b0307" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0c0103" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="spotlightL" cx="20%" cy="10%" r="50%">
+      <stop offset="0%" stop-color="#ffcc44" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#ff5500" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="spotlightR" cx="80%" cy="10%" r="50%">
+      <stop offset="0%" stop-color="#ff9900" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#d30e06" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="curtainGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3a040b"/>
+      <stop offset="50%" stop-color="#690a16"/>
+      <stop offset="100%" stop-color="#3a040b"/>
+    </linearGradient>
+    <linearGradient id="goldPlate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe699"/>
+      <stop offset="50%" stop-color="#ffaa00"/>
+      <stop offset="100%" stop-color="#e65c00"/>
+    </linearGradient>
+    <filter id="cinematicBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Stage Backdrop -->
+  <rect width="1200" height="800" fill="url(#stageGlow)"/>
+
+  <!-- Spotlights -->
+  <rect width="1200" height="800" fill="url(#spotlightL)"/>
+  <rect width="1200" height="800" fill="url(#spotlightR)"/>
+
+  <!-- Architectural Stage Perspective Lines -->
+  <g stroke="rgba(255, 170, 50, 0.12)" stroke-width="1.5">
+    <line x1="600" y1="200" x2="0" y2="800"/>
+    <line x1="600" y1="200" x2="200" y2="800"/>
+    <line x1="600" y1="200" x2="400" y2="800"/>
+    <line x1="600" y1="200" x2="800" y2="800"/>
+    <line x1="600" y1="200" x2="1000" y2="800"/>
+    <line x1="600" y1="200" x2="1200" y2="800"/>
+    <line x1="100" y1="500" x2="1100" y2="500"/>
+    <line x1="50" y1="620" x2="1150" y2="620"/>
+  </g>
+
+  <!-- Ceremonial Stage Platform -->
+  <polygon points="250,560 950,560 1080,740 120,740" fill="#1e0409" stroke="rgba(255, 180, 50, 0.35)" stroke-width="2"/>
+  <polygon points="260,565 940,565 1060,735 140,735" fill="none" stroke="rgba(255, 100, 0, 0.2)" stroke-width="1"/>
+
+  <!-- Stage Podium & Floral Motif -->
+  <rect x="550" y="470" width="100" height="150" rx="4" fill="#2c060d" stroke="url(#goldPlate)" stroke-width="2"/>
+  <circle cx="600" cy="450" r="16" fill="url(#goldPlate)"/>
+  <circle cx="600" cy="450" r="28" fill="none" stroke="rgba(255, 200, 50, 0.4)" stroke-dasharray="4 4"/>
+
+  <!-- Stage Ambient Beam Circles -->
+  <circle cx="600" cy="240" r="90" fill="#ff9900" opacity="0.15" filter="url(#cinematicBlur)"/>
+  <circle cx="350" cy="340" r="120" fill="#ff4400" opacity="0.12" filter="url(#cinematicBlur)"/>
+  <circle cx="850" cy="340" r="120" fill="#ffaa00" opacity="0.12" filter="url(#cinematicBlur)"/>
+
+  <!-- Editorial HUD & Metadata Typography Overlay -->
+  <rect x="60" y="50" width="340" height="34" rx="17" fill="rgba(18, 2, 5, 0.7)" stroke="rgba(255, 170, 0, 0.35)" stroke-width="1"/>
+  <circle cx="80" cy="67" r="4" fill="#ffaa00"/>
+  <text x="96" y="72" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#ffcc66" letter-spacing="2">ARCHIVE // CEREMONY &amp; LEADERSHIP</text>
+
+  <!-- Big Editorial Typography -->
+  <text x="60" y="680" font-family="'Syne', sans-serif" font-size="54" font-weight="800" fill="#ffffff" letter-spacing="-1">TEACHER'S DAY CELEBRATION</text>
+  <text x="60" y="720" font-family="'Outfit', sans-serif" font-size="20" font-weight="500" fill="#ffccaa" letter-spacing="3">MAIN STAGE CEREMONY &amp; STUDENT COORDINATION</text>
+
+  <!-- Camera Frame Corners -->
+  <path d="M 40,80 L 40,40 L 80,40" fill="none" stroke="#ffaa00" stroke-width="2.5" opacity="0.8"/>
+  <path d="M 1120,40 L 1160,40 L 1160,80" fill="none" stroke="#ffaa00" stroke-width="2.5" opacity="0.8"/>
+  <path d="M 40,720 L 40,760 L 80,760" fill="none" stroke="#ffaa00" stroke-width="2.5" opacity="0.8"/>
+  <path d="M 1160,720 L 1160,760 L 1120,760" fill="none" stroke="#ffaa00" stroke-width="2.5" opacity="0.8"/>
+</svg>
+

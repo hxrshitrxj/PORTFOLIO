@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Heart, Plus, Search, Shield, Cpu, Sparkles, Award, Terminal, Radio, ExternalLink } from 'lucide-react';
-import { useModal } from '../../context/ModalContext';
-import { useExperience, EXPERIENCES } from '../../context/ExperienceContext';
+import { ArrowUpRight, Heart, Plus, Award } from 'lucide-react';
 import ExpandableCardModal from './ExpandableCardModal';
 import './WorksArchiveExperience.css';
 
@@ -273,16 +271,13 @@ const LIFI_WORKS_PROJECT = {
   bioRole: 'Visible Light Communication Prototype',
   bioDesc: 'is an award-winning optical wireless telemetry system engineered by Harshit Raj. Earning 2nd Position at the Class 11 Science Exhibition, it replaces congested RF signals with high-speed visible light pulses, delivering zero-interference and wall-contained secure communications.',
   tags: ['Arduino UNO', 'Visible Light Comm (VLC)', 'Embedded C++', 'I2C LCD', 'Optical Sensors', 'Hardware'],
-  github: 'https://github.com',
+  github: 'https://github.com/hxrshitrxj',
 };
 
-export function WorksArchiveExperience({ transitionPhase, originRect }) {
+export function WorksArchiveExperience({ transitionPhase = 'active' }) {
   const [favorites, setFavorites] = useState({});
   const [expandedCardKey, setExpandedCardKey] = useState(null);
   const [expandedCardOriginRect, setExpandedCardOriginRect] = useState(null);
-  
-  const { switchExperience } = useExperience();
-  const { openModal } = useModal();
 
   const activeProject = LIFI_WORKS_PROJECT;
 

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { X, ArrowUpRight, Check, Copy, ExternalLink, Cpu, Terminal, Sparkles, Layers, ShieldCheck, Mail, Clock, Award, Shield, Radio, Zap } from 'lucide-react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { X, ArrowUpRight, Check, Copy, Cpu, Mail, Clock } from 'lucide-react';
 import gsap from 'gsap';
 import { useModal } from '../../context/ModalContext';
 import { GithubIcon, TwitterIcon, LinkedinIcon } from '../Icons';
@@ -35,6 +35,64 @@ export function CinematicModal() {
     const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  // Smooth Reverse Absorption on Close
+  const handleClose = useCallback(() => {
+    if (isClosingRef.current || !panelRef.current || !backdropRef.current) {
+      setIsRendered(false);
+      closeModal();
+      document.body.style.overflow = '';
+      return;
+    }
+
+    isClosingRef.current = true;
+    const modalCenterX = window.innerWidth / 2;
+    const modalCenterY = window.innerHeight / 2;
+    const deltaX = (origin?.x || modalCenterX) - modalCenterX;
+    const deltaY = (origin?.y || modalCenterY) - modalCenterY;
+
+    const staggerItems = contentRef.current 
+      ? contentRef.current.querySelectorAll('.modal-stagger-item') 
+      : [];
+
+    const closeTl = gsap.timeline({
+      onComplete: () => {
+        setIsRendered(false);
+        isClosingRef.current = false;
+        closeModal();
+        document.body.style.overflow = '';
+      },
+    });
+
+    // 1. Content elements fade out first
+    if (staggerItems.length > 0) {
+      closeTl.to(staggerItems, {
+        opacity: 0,
+        y: 12,
+        duration: 0.14,
+        stagger: 0.02,
+        ease: 'power2.in',
+      }, 0);
+    }
+
+    // 2. Panel is sucked back into the original button position
+    closeTl.to(panelRef.current, {
+      x: deltaX,
+      y: deltaY,
+      scale: 0.12,
+      opacity: 0,
+      filter: 'blur(10px)',
+      duration: 0.28,
+      ease: 'power3.in',
+    }, 0.06);
+
+    // 3. Backdrop dissolves back into website atmosphere
+    closeTl.to(backdropRef.current, {
+      opacity: 0,
+      duration: 0.24,
+      ease: 'power2.in',
+    }, 0.10);
+  }, [closeModal, origin]);
 
   // Handle Entrance & Exit Animations
   useEffect(() => {
@@ -116,65 +174,7 @@ export function CinematicModal() {
     } else if (isRendered && !isClosingRef.current) {
       handleClose();
     }
-  }, [isOpen]);
-
-  // Smooth Reverse Absorption on Close
-  const handleClose = () => {
-    if (isClosingRef.current || !panelRef.current || !backdropRef.current) {
-      setIsRendered(false);
-      closeModal();
-      document.body.style.overflow = '';
-      return;
-    }
-
-    isClosingRef.current = true;
-    const modalCenterX = window.innerWidth / 2;
-    const modalCenterY = window.innerHeight / 2;
-    const deltaX = (origin?.x || modalCenterX) - modalCenterX;
-    const deltaY = (origin?.y || modalCenterY) - modalCenterY;
-
-    const staggerItems = contentRef.current 
-      ? contentRef.current.querySelectorAll('.modal-stagger-item') 
-      : [];
-
-    const closeTl = gsap.timeline({
-      onComplete: () => {
-        setIsRendered(false);
-        isClosingRef.current = false;
-        closeModal();
-        document.body.style.overflow = '';
-      },
-    });
-
-    // 1. Content elements fade out first
-    if (staggerItems.length > 0) {
-      closeTl.to(staggerItems, {
-        opacity: 0,
-        y: 12,
-        duration: 0.14,
-        stagger: 0.02,
-        ease: 'power2.in',
-      }, 0);
-    }
-
-    // 2. Panel is sucked back into the original button position
-    closeTl.to(panelRef.current, {
-      x: deltaX,
-      y: deltaY,
-      scale: 0.12,
-      opacity: 0,
-      filter: 'blur(10px)',
-      duration: 0.28,
-      ease: 'power3.in',
-    }, 0.06);
-
-    // 3. Backdrop dissolves back into website atmosphere
-    closeTl.to(backdropRef.current, {
-      opacity: 0,
-      duration: 0.24,
-      ease: 'power2.in',
-    }, 0.10);
-  };
+  }, [isOpen, isRendered, handleClose, origin]);
 
   // Close on ESC key
   useEffect(() => {
@@ -185,7 +185,7 @@ export function CinematicModal() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isRendered]);
+  }, [isRendered, handleClose]);
 
   const handleCopyEmail = (e) => {
     e.stopPropagation();

@@ -1,10 +1,11 @@
 import React from 'react';
-import { ArrowLeft, X, Sparkles } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useExperience, EXPERIENCES } from '../../context/ExperienceContext';
 import WorksArchiveExperience from './WorksArchiveExperience';
 import LabGlitchExperience from './LabGlitchExperience';
 import JourneyTimelineExperience from './JourneyTimelineExperience';
 import AboutIdentityExperience from './AboutIdentityExperience';
+import EventChronicle from '../EventChronicle/EventChronicle';
 import './ExperienceManager.css';
 
 export function ExperienceManager() {
@@ -24,6 +25,16 @@ export function ExperienceManager() {
   const handleNavClick = (mode, e) => {
     e.preventDefault();
     e.stopPropagation();
+    if (mode === EXPERIENCES.CHRONICLE) {
+      closeExperience();
+      setTimeout(() => {
+        const el = document.getElementById('event-chronicle');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500);
+      return;
+    }
     openExperience(mode, e);
   };
 
@@ -100,6 +111,12 @@ export function ExperienceManager() {
             transitionPhase={transitionPhase} 
             originRect={originRect} 
           />
+        )}
+
+        {activeExperience === EXPERIENCES.CHRONICLE && (
+          <div className="exp-chronicle-full-view">
+            <EventChronicle isOverlay />
+          </div>
         )}
 
         {activeExperience === EXPERIENCES.ABOUT && (

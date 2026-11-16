@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Clock, Award, Compass, Sparkles, Milestone, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, Award, Milestone } from 'lucide-react';
 import './JourneyTimelineExperience.css';
 
 const TIMELINE_EVENTS = [
@@ -107,7 +107,7 @@ const formatBoldText = (text) => {
   });
 };
 
-export function JourneyTimelineExperience({ transitionPhase, originRect }) {
+export function JourneyTimelineExperience({ transitionPhase = 'active' }) {
   const [warpYear, setWarpYear] = useState(2026);
   const [isWarping, setIsWarping] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);

@@ -208,7 +208,7 @@ export function HeroScroll() {
          ------------------------------------------------------------- */
 
       // Word 1: "BUILD." (0.02 -> 0.26, peak plateau 0.08 -> 0.20)
-      tl.fromTo(wordBuildRef.current, 
+      tl.fromTo(wordBuildRef.current,
         { opacity: 0, y: 45, scale: 0.92 },
         { opacity: 1, y: 0, scale: 1.0, duration: 0.07, ease: 'power2.out' },
         0.02
@@ -308,19 +308,19 @@ export function HeroScroll() {
     <section className="hero-scroll-track" ref={containerRef} id="hero-track">
       {/* Pinned Sticky Stage */}
       <div className="hero-sticky-stage" ref={stickyRef}>
-        
+
         {/* Outer 3D Tilt Wrapper: Isolates Mouse Perspective */}
         <div className="hero-tilt-wrapper" ref={tiltWrapRef}>
-          
+
           {/* Inner 3D Camera Viewport: Dedicated to GSAP Zoom & Scale */}
           <div className="hero-camera-viewport" ref={cameraWrapRef}>
 
             {/* LAYER 1: 99.85% Exact In-painted Background Plate */}
             <div className="hero-layer hero-bg-layer">
-              <img 
+              <img
                 ref={bgImgRef}
-                src="/hero-bg-perfect.png" 
-                alt="Cinematic background gradient" 
+                src="/hero-bg-perfect.png"
+                alt="Cinematic background gradient"
                 className="hero-media-canvas hero-bg-canvas"
                 loading="eager"
                 fetchPriority="high"
@@ -329,7 +329,7 @@ export function HeroScroll() {
               {/* Glowing Ambient Light Orbs */}
               <div className="ambient-radial-glow glow-top" />
               <div className="ambient-radial-glow glow-bottom" />
-              
+
               {/* Subtle Tech Coordinates Grid */}
               <div className="hero-coordinates-grid" />
             </div>
@@ -364,9 +364,9 @@ export function HeroScroll() {
 
             {/* LAYER 3: The Person Cutout (PASSES IN FRONT OF TYPOGRAPHY) */}
             <div className="hero-layer hero-person-layer" ref={personWrapRef}>
-              <img 
-                src="/hero-person.png" 
-                alt="Harshit Raj - Creative Developer" 
+              <img
+                src="/hero-person.png"
+                alt="Harshit Raj - Creative Developer"
                 className="hero-media-canvas hero-person-canvas"
                 loading="eager"
                 fetchPriority="high"
@@ -376,7 +376,7 @@ export function HeroScroll() {
             </div>
 
             {/* LAYER 4: Exactly Anchored Sparkle Star (91.21%, 86.36%) */}
-            <div 
+            <div
               className="hero-sparkle-anchor"
               ref={primarySparkleRef}
               style={{
@@ -384,7 +384,7 @@ export function HeroScroll() {
                 top: '86.36%',
               }}
             >
-              <Sparkle 
+              <Sparkle
                 size={isMobile ? 36 : 52}
                 velocity={0}
               />
@@ -395,7 +395,7 @@ export function HeroScroll() {
 
         {/* LAYER 5: Foreground HUD, Vignette, Audio Toggle & Telemetry */}
         <div className="hero-foreground-hud-layer">
-          
+
           {/* 35mm Film Grain & Optical Vignette */}
           <div className="cinematic-vignette-overlay" />
           <div className="cinematic-grain-overlay" />
@@ -447,6 +447,20 @@ export function HeroScroll() {
 
               <button
                 type="button"
+                className="nav-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById('event-chronicle');
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+              >
+                <span>CHRONICLE</span>
+              </button>
+
+              <button
+                type="button"
                 className={`nav-link ${activeExperience === EXPERIENCES.ABOUT ? 'nav-link-active' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
@@ -460,7 +474,7 @@ export function HeroScroll() {
 
             <div className="nav-right-actions">
 
-              <button 
+              <button
                 type="button"
                 className="nav-cta-pill"
                 onClick={(e) => openModal('contact', null, e)}
@@ -472,10 +486,10 @@ export function HeroScroll() {
           </header>
 
           {/* Initial Prompt Arrow */}
-          <div 
+          <div
             className="initial-scroll-prompt"
             ref={promptWrapRef}
-            style={{ 
+            style={{
               opacity: 1,
               transform: 'translate(-50%, 0px)'
             }}

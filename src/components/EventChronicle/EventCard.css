@@ -1,0 +1,246 @@
+/* ==========================================================================
+   EVENT CARD STYLES — THE EVENT CHRONICLE
+   Aesthetic: Apple-Style Glass Minimalist Card, Subtle Amber Glow
+   ========================================================================== */
+
+.chronicle-event-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(22, 3, 6, 0.75);
+  border: 1px solid rgba(255, 140, 0, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.chronicle-event-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 180, 50, 0.5);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 100, 0, 0.18);
+  background: rgba(28, 4, 8, 0.9);
+}
+
+/* Media Wrap */
+.card-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #110204;
+}
+
+.card-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chronicle-event-card:hover .card-cover-img {
+  transform: scale(1.06);
+}
+
+.card-media-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(16, 2, 5, 0.9) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Badges */
+.card-top-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  z-index: 2;
+}
+
+.card-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(8px);
+}
+
+.card-role-badge.type-organized {
+  background: rgba(255, 100, 0, 0.22);
+  border: 1px solid rgba(255, 160, 50, 0.5);
+  color: #ffaa33;
+}
+
+.card-role-badge.type-volunteered {
+  background: rgba(0, 229, 255, 0.18);
+  border: 1px solid rgba(0, 229, 255, 0.5);
+  color: #55eeff;
+}
+
+.card-role-badge.type-participated {
+  background: rgba(180, 50, 255, 0.18);
+  border: 1px solid rgba(180, 50, 255, 0.5);
+  color: #df99ff;
+}
+
+.card-category-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  background: rgba(14, 2, 5, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(255, 235, 220, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* Card Body */
+.card-content-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  color: #ffaa33;
+  margin-bottom: 8px;
+}
+
+.card-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meta-icon {
+  color: #ff8800;
+}
+
+.meta-sep {
+  opacity: 0.4;
+}
+
+.card-event-title {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  transition: color 0.2s ease;
+}
+
+.chronicle-event-card:hover .card-event-title {
+  color: #ffcc44;
+}
+
+.card-role-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.86rem;
+  color: rgba(255, 235, 220, 0.85);
+  margin: 0 0 10px 0;
+}
+
+.role-prefix {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ff8800;
+  letter-spacing: 0.1em;
+}
+
+.card-event-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(255, 215, 190, 0.65);
+  margin: 0 0 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Skills Row */
+.card-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.card-skill-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  background: rgba(255, 140, 0, 0.08);
+  border: 1px solid rgba(255, 160, 50, 0.22);
+  border-radius: 6px;
+  color: #ffcca0;
+}
+
+.card-skill-more {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.66rem;
+  color: rgba(255, 215, 190, 0.5);
+  padding: 2px 4px;
+}
+
+/* Action Footer */
+.card-action-footer {
+  border-top: 1px solid rgba(255, 140, 0, 0.14);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffaa33;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 4px 0;
+}
+
+.card-view-btn:hover {
+  color: #ffffff;
+}
+
+.view-btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.chronicle-event-card:hover .view-btn-arrow {
+  transform: translate(3px, -3px);
+  color: #ffffff;
+}
+

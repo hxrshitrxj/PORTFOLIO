@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="delGlow" cx="45%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#7209b7" stop-opacity="0.6"/>
+      <stop offset="45%" stop-color="#00b4d8" stop-opacity="0.3"/>
+      <stop offset="85%" stop-color="#10020d" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#050005" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#delGlow)"/>
+
+  <!-- Registration Desk & Wayfinding Blueprint -->
+  <rect x="200" y="240" width="800" height="340" rx="12" fill="#170312" stroke="rgba(0, 229, 255, 0.35)" stroke-width="2"/>
+  <rect x="240" y="280" width="720" height="60" rx="6" fill="#25061d" stroke="rgba(255, 0, 128, 0.3)" stroke-width="1"/>
+
+  <text x="600" y="318" font-family="'Syne', sans-serif" font-size="20" font-weight="700" fill="#00e5ff" text-anchor="middle" letter-spacing="3">INTER-SCHOOL DELEGATION WELCOME DESK</text>
+
+  <!-- Contingent Badges & Kiosks -->
+  <g>
+    <rect x="280" y="380" width="180" height="140" rx="8" fill="#200418" stroke="#ff007f" stroke-width="1.5"/>
+    <circle cx="370" cy="425" r="20" fill="none" stroke="#ffaa00" stroke-width="2"/>
+    <text x="370" y="475" font-family="'JetBrains Mono', monospace" font-size="12" fill="#ffccaa" text-anchor="middle">CONTINGENT A</text>
+    <text x="370" y="495" font-family="'Outfit', sans-serif" font-size="11" fill="#888" text-anchor="middle">VERIFIED</text>
+
+    <rect x="510" y="380" width="180" height="140" rx="8" fill="#200418" stroke="#00e5ff" stroke-width="1.5"/>
+    <circle cx="600" cy="425" r="20" fill="none" stroke="#00e5ff" stroke-width="2"/>
+    <text x="600" y="475" font-family="'JetBrains Mono', monospace" font-size="12" fill="#a0f0ff" text-anchor="middle">CONTINGENT B</text>
+    <text x="600" y="495" font-family="'Outfit', sans-serif" font-size="11" fill="#888" text-anchor="middle">VERIFIED</text>
+
+    <rect x="740" y="380" width="180" height="140" rx="8" fill="#200418" stroke="#00ff88" stroke-width="1.5"/>
+    <circle cx="830" cy="425" r="20" fill="none" stroke="#00ff88" stroke-width="2"/>
+    <text x="830" y="475" font-family="'JetBrains Mono', monospace" font-size="12" fill="#b0ffcf" text-anchor="middle">CONTINGENT C</text>
+    <text x="830" y="495" font-family="'Outfit', sans-serif" font-size="11" fill="#888" text-anchor="middle">VERIFIED</text>
+  </g>
+
+  <!-- Top Metadata Badge -->
+  <rect x="60" y="50" width="310" height="34" rx="17" fill="rgba(18, 2, 5, 0.7)" stroke="rgba(0, 229, 255, 0.35)" stroke-width="1"/>
+  <circle cx="80" cy="67" r="4" fill="#00e5ff"/>
+  <text x="96" y="72" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#a0f0ff" letter-spacing="2">HOSPITALITY &amp; WAYFINDING</text>
+
+  <text x="60" y="700" font-family="'Syne', sans-serif" font-size="44" font-weight="800" fill="#ffffff">VISITING SCHOOL ESCORT</text>
+  <text x="60" y="740" font-family="'Outfit', sans-serif" font-size="18" fill="#a0f0ff" letter-spacing="2">CAMPUS NAVIGATION, REGISTRATION &amp; HELP DESK</text>
+</svg>
+

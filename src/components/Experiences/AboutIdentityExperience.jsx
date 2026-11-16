@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { User, Terminal, Cpu, Sparkles, ArrowUpRight, Globe, Layers, HeartHandshake } from 'lucide-react';
+import { ArrowUpRight, HeartHandshake } from 'lucide-react';
 import { useModal } from '../../context/ModalContext';
 import './AboutIdentityExperience.css';
 
-export function AboutIdentityExperience({ transitionPhase, originRect }) {
+export function AboutIdentityExperience({ transitionPhase = 'active' }) {
   const [revealedStep, setRevealedStep] = useState(0);
   const [mouseParallax, setMouseParallax] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);

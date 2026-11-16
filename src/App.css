@@ -9,7 +9,7 @@
 .content-stream {
   position: relative;
   width: 100%;
-  z-index: 25;
+  z-index: 40;
   background: var(--bg-primary);
   box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.85);
 }

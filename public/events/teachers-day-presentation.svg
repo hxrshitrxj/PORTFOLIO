@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="presGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#ffb703" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#800e13" stop-opacity="0.5"/>
+      <stop offset="85%" stop-color="#190306" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#080102" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#presGlow)"/>
+
+  <!-- Presentation Screen / Stage Projection Mockup -->
+  <rect x="220" y="160" width="760" height="420" rx="8" fill="#1f0408" stroke="rgba(255, 185, 30, 0.4)" stroke-width="2"/>
+  <rect x="240" y="180" width="720" height="380" rx="4" fill="#120204"/>
+
+  <!-- Tribute Emblem / Graphic on Screen -->
+  <circle cx="600" cy="330" r="60" fill="none" stroke="#ffaa00" stroke-width="2"/>
+  <circle cx="600" cy="330" r="75" fill="none" stroke="rgba(255, 170, 0, 0.4)" stroke-dasharray="6 6"/>
+  <path d="M 580,330 L 620,330 M 600,310 L 600,350" stroke="#ffcc00" stroke-width="3"/>
+
+  <text x="600" y="440" font-family="'Syne', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="4">IN GRATITUDE TO OUR EDUCATORS</text>
+  <text x="600" y="475" font-family="'Outfit', sans-serif" font-size="15" fill="#ffb703" text-anchor="middle" letter-spacing="2">STUDENT CULTURAL SPEECHES &amp; PRESENTATIONS</text>
+
+  <!-- Stage Lights & Audience Glow -->
+  <ellipse cx="600" cy="620" rx="380" ry="25" fill="#ff7700" opacity="0.3"/>
+
+  <!-- Top Badge -->
+  <rect x="60" y="50" width="280" height="34" rx="17" fill="rgba(18, 2, 5, 0.7)" stroke="rgba(255, 170, 0, 0.35)" stroke-width="1"/>
+  <circle cx="80" cy="67" r="4" fill="#ffaa00"/>
+  <text x="96" y="72" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#ffcc66" letter-spacing="2">CULTURAL PROCEEDINGS</text>
+
+  <text x="60" y="720" font-family="'Syne', sans-serif" font-size="44" font-weight="800" fill="#ffffff">STUDENT TRIBUTES &amp; STAGE FLOW</text>
+  <text x="60" y="755" font-family="'Outfit', sans-serif" font-size="18" fill="#ffcca0" letter-spacing="2">APPRECIATION, SPEECHES &amp; CEREMONIAL PROTOCOL</text>
+</svg>
+

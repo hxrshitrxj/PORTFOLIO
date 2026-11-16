@@ -3,7 +3,7 @@ import { Terminal, ArrowRight } from 'lucide-react';
 import { useExperience, EXPERIENCES } from '../../context/ExperienceContext';
 import './LabGlitchExperience.css';
 
-export function LabGlitchExperience({ transitionPhase, originRect }) {
+export function LabGlitchExperience({ transitionPhase = 'active' }) {
   const { openExperience, closeExperience } = useExperience();
   const [dots, setDots] = useState('');
   const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });

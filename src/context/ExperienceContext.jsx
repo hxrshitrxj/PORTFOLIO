@@ -6,6 +6,7 @@ export const EXPERIENCES = {
   WORKS: 'WORKS',
   LAB: 'LAB',
   JOURNEY: 'JOURNEY',
+  CHRONICLE: 'CHRONICLE',
   ABOUT: 'ABOUT',
 };
 

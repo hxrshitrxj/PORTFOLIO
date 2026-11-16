@@ -6,7 +6,6 @@ import {
   Shield, 
   Zap, 
   Sparkles, 
-  Eye, 
   ArrowUpRight, 
   CheckCircle2, 
   Play, 

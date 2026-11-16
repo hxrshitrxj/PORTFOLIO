@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="podiumGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#ffb703" stop-opacity="0.6"/>
+      <stop offset="45%" stop-color="#a31621" stop-opacity="0.5"/>
+      <stop offset="85%" stop-color="#140205" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#080102" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe699"/>
+      <stop offset="100%" stop-color="#d48800"/>
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0e0e0"/>
+      <stop offset="100%" stop-color="#8c8c8c"/>
+    </linearGradient>
+    <linearGradient id="bronzeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5a65b"/>
+      <stop offset="100%" stop-color="#a0522d"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#podiumGlow)"/>
+
+  <!-- Podium Pedestals -->
+  <!-- 2nd Place -->
+  <rect x="360" y="380" width="140" height="220" rx="6" fill="#24050a" stroke="url(#silverGrad)" stroke-width="2"/>
+  <text x="430" y="460" font-family="'Syne', sans-serif" font-size="48" font-weight="800" fill="url(#silverGrad)" text-anchor="middle">2</text>
+
+  <!-- 1st Place (Center, Tallest) -->
+  <rect x="530" y="300" width="140" height="300" rx="6" fill="#2d060d" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <text x="600" y="390" font-family="'Syne', sans-serif" font-size="58" font-weight="800" fill="url(#goldGrad)" text-anchor="middle">1</text>
+
+  <!-- 3rd Place -->
+  <rect x="700" y="430" width="140" height="170" rx="6" fill="#200408" stroke="url(#bronzeGrad)" stroke-width="2"/>
+  <text x="770" y="500" font-family="'Syne', sans-serif" font-size="44" font-weight="800" fill="url(#bronzeGrad)" text-anchor="middle">3</text>
+
+  <!-- Medal Laurel Graphic -->
+  <circle cx="600" cy="240" r="28" fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
+  <polygon points="600,225 605,238 619,238 608,246 612,259 600,250 588,259 592,246 581,238 595,238" fill="url(#goldGrad)"/>
+
+  <!-- Top Metadata Badge -->
+  <rect x="60" y="50" width="310" height="34" rx="17" fill="rgba(18, 2, 5, 0.7)" stroke="rgba(255, 170, 0, 0.35)" stroke-width="1"/>
+  <circle cx="80" cy="67" r="4" fill="#ffb703"/>
+  <text x="96" y="72" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#ffcc66" letter-spacing="2">RESULTS &amp; PODIUM PROTOCOL</text>
+
+  <text x="60" y="700" font-family="'Syne', sans-serif" font-size="44" font-weight="800" fill="#ffffff">RESULT TRANSMISSION &amp; CEREMONY</text>
+  <text x="60" y="740" font-family="'Outfit', sans-serif" font-size="18" fill="#ffcca0" letter-spacing="2">SCORE VERIFICATION &amp; RUNNER-RELAY ACCURACY</text>
+</svg>
+

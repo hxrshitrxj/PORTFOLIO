@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroScroll from './components/HeroScroll/HeroScroll';
 import ProjectsSection from './components/Projects/ProjectsSection';
+import EventChronicle from './components/EventChronicle/EventChronicle';
 import ContactSection from './components/Contact/ContactSection';
 import CustomCursor from './components/Cursor/CustomCursor';
 import { ModalProvider } from './context/ModalContext';
@@ -30,6 +31,7 @@ export function App() {
             {/* Subsequent Portfolio Content revealed smoothly as Hero finishes */}
             <div className="content-stream">
               <ProjectsSection />
+              <EventChronicle />
               <ContactSection />
             </div>
           </main>

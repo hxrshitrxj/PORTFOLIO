@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { X, ArrowUpRight, CheckCircle2, ChevronRight, Award, Cpu, Shield, Radio, Sparkles, Terminal } from 'lucide-react';
+import React, { useEffect, useRef, useCallback } from 'react';
+import { X, ArrowUpRight, ChevronRight, Award, Terminal } from 'lucide-react';
 import gsap from 'gsap';
 import './ExpandableCardModal.css';
 
@@ -8,6 +8,58 @@ export function ExpandableCardModal({ cardData, originRect, onClose }) {
   const panelRef = useRef(null);
   const contentRef = useRef(null);
   const isClosingRef = useRef(false);
+
+  const handleClose = useCallback(() => {
+    if (isClosingRef.current || !panelRef.current || !overlayRef.current) {
+      onClose();
+      return;
+    }
+    isClosingRef.current = true;
+
+    const viewportW = window.innerWidth;
+    const viewportH = window.innerHeight;
+    let targetX = 0;
+    let targetY = 0;
+    let targetScaleX = 0.5;
+    let targetScaleY = 0.5;
+
+    if (originRect) {
+      const modalTargetW = Math.min(viewportW * 0.9, 1020);
+      const modalTargetH = Math.min(viewportH * 0.88, 820);
+      const targetCenterX = viewportW / 2;
+      const targetCenterY = viewportH / 2;
+      const originCenterX = originRect.left + originRect.width / 2;
+      const originCenterY = originRect.top + originRect.height / 2;
+
+      targetX = originCenterX - targetCenterX;
+      targetY = originCenterY - targetCenterY;
+      targetScaleX = Math.max(originRect.width / modalTargetW, 0.25);
+      targetScaleY = Math.max(originRect.height / modalTargetH, 0.25);
+    }
+
+    // Reverse cinematic contraction directly back to card position (420ms)
+    const closeTl = gsap.timeline({
+      onComplete: () => {
+        onClose();
+      },
+    });
+
+    closeTl.to(overlayRef.current, {
+      opacity: 0,
+      duration: 0.35,
+      ease: 'power2.inOut',
+    }, 0.05);
+
+    closeTl.to(panelRef.current, {
+      x: targetX,
+      y: targetY,
+      scaleX: targetScaleX,
+      scaleY: targetScaleY,
+      opacity: 0,
+      duration: 0.42,
+      ease: 'power3.inOut',
+    }, 0);
+  }, [onClose, originRect]);
 
   useEffect(() => {
     if (!cardData || !panelRef.current || !overlayRef.current) return;
@@ -102,59 +154,7 @@ export function ExpandableCardModal({ cardData, originRect, onClose }) {
       window.removeEventListener('keydown', handleKeyDown, true);
       document.body.style.overflow = originalOverflow;
     };
-  }, [cardData, originRect]);
-
-  const handleClose = () => {
-    if (isClosingRef.current || !panelRef.current || !overlayRef.current) {
-      onClose();
-      return;
-    }
-    isClosingRef.current = true;
-
-    const viewportW = window.innerWidth;
-    const viewportH = window.innerHeight;
-    let targetX = 0;
-    let targetY = 0;
-    let targetScaleX = 0.5;
-    let targetScaleY = 0.5;
-
-    if (originRect) {
-      const modalTargetW = Math.min(viewportW * 0.9, 1020);
-      const modalTargetH = Math.min(viewportH * 0.88, 820);
-      const targetCenterX = viewportW / 2;
-      const targetCenterY = viewportH / 2;
-      const originCenterX = originRect.left + originRect.width / 2;
-      const originCenterY = originRect.top + originRect.height / 2;
-
-      targetX = originCenterX - targetCenterX;
-      targetY = originCenterY - targetCenterY;
-      targetScaleX = Math.max(originRect.width / modalTargetW, 0.25);
-      targetScaleY = Math.max(originRect.height / modalTargetH, 0.25);
-    }
-
-    // Reverse cinematic contraction directly back to card position (420ms)
-    const closeTl = gsap.timeline({
-      onComplete: () => {
-        onClose();
-      },
-    });
-
-    closeTl.to(overlayRef.current, {
-      opacity: 0,
-      duration: 0.35,
-      ease: 'power2.inOut',
-    }, 0.05);
-
-    closeTl.to(panelRef.current, {
-      x: targetX,
-      y: targetY,
-      scaleX: targetScaleX,
-      scaleY: targetScaleY,
-      opacity: 0,
-      duration: 0.42,
-      ease: 'power3.inOut',
-    }, 0);
-  };
+  }, [cardData, originRect, handleClose]);
 
   if (!cardData) return null;
 

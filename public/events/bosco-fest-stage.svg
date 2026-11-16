@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="stageBlueGlow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#0077b6" stop-opacity="0.7"/>
+      <stop offset="35%" stop-color="#3a0ca3" stop-opacity="0.5"/>
+      <stop offset="75%" stop-color="#10020d" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#050105" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#stageBlueGlow)"/>
+
+  <!-- Backstage Prop & Instrument Holding Grid -->
+  <g stroke="rgba(0, 180, 216, 0.2)" stroke-width="1.5">
+    <line x1="200" y1="200" x2="1000" y2="200"/>
+    <line x1="200" y1="360" x2="1000" y2="360"/>
+    <line x1="200" y1="520" x2="1000" y2="520"/>
+  </g>
+
+  <!-- Stage Curtains & Mic Stand Silhouette -->
+  <line x1="600" y1="320" x2="600" y2="500" stroke="#00e5ff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="600" cy="310" r="14" fill="#00e5ff"/>
+  <ellipse cx="600" cy="505" rx="35" ry="8" fill="none" stroke="#00e5ff" stroke-width="3"/>
+
+  <!-- Fast Turnover Stopwatch Indicator -->
+  <rect x="740" y="320" width="220" height="90" rx="8" fill="#1b0314" stroke="#ff007f" stroke-width="2"/>
+  <text x="850" y="355" font-family="'JetBrains Mono', monospace" font-size="14" fill="#ff007f" text-anchor="middle">TRANSITION WINDOW</text>
+  <text x="850" y="385" font-family="'Syne', sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">&lt; 120 SECONDS</text>
+
+  <!-- Top Metadata Badge -->
+  <rect x="60" y="50" width="310" height="34" rx="17" fill="rgba(18, 2, 5, 0.7)" stroke="rgba(0, 229, 255, 0.35)" stroke-width="1"/>
+  <circle cx="80" cy="67" r="4" fill="#00e5ff"/>
+  <text x="96" y="72" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#a0f0ff" letter-spacing="2">STAGE HANDOVER PROTOCOL</text>
+
+  <text x="60" y="700" font-family="'Syne', sans-serif" font-size="44" font-weight="800" fill="#ffffff">RAPID STAGE LOGISTICS</text>
+  <text x="60" y="740" font-family="'Outfit', sans-serif" font-size="18" fill="#a0f0ff" letter-spacing="2">PROP SEQUENCING, MIC CHECKS &amp; EVENT TURNOVER</text>
+</svg>
+
